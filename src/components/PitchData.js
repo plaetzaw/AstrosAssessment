@@ -9,6 +9,7 @@ const PitchData = ({ pitch }) => {
   //   const chartData = []
 
   const pitches = GetAllPitches(pitch)
+  console.log('here are you speeds', pitches)
   const max = FindMaxSpeed(pitch)
 
   return (
