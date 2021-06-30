@@ -16,7 +16,15 @@ export const GetAllPitches = (pitch) => {
   const u86mph = []
   const a86mph = []
   for (let i = 0; i < pitch.length; i++) {
-    console.log(parseFloat(pitch[i].plate_speed))
+    pitches.push(parseFloat(pitch[i].plate_speed).toFixed(2))
+  }
+
+  const nums = pitches.map(Number)
+
+  console.log(nums)
+
+  for (let i = 0; i < pitch.length; i++) {
+    // console.log(parseFloat(pitch[i].plate_speed))
     if (parseFloat(pitch[i].plate_speed) > 86) {
       o86mph.push(parseFloat(pitch[i].plate_speed).toFixed(0))
     } else if (parseFloat(pitch[i].plate_speed) < 86) {
