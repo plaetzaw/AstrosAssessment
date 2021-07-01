@@ -12,4 +12,6 @@ If I had more time I would have gone back and fixed the chart issue. I don't kno
 
 Next, I'd go back and add some conditional styling for the pitch display. I used almost no CSS in this challenge because I spent most of the time focused on functionality.
 
-### `npm start`
+### Live version
+
+https://astrosassessment.netlify.app/
