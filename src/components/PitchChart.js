@@ -1,34 +1,37 @@
 import React from 'react'
-import { Chart } from 'react-charts'
+import Chart from 'react-apexcharts'
 
-const PitchChart = ({ pitches }) => {
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'linear', position: 'bottom' },
-      { type: 'linear', position: 'left' }
-    ],
-    []
-  )
+const PitchChart = ({ pitches, max }) => {
+  console.log('Here is your chart data', pitches, max)
 
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Series 1',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+  const series = [{
+    data: pitches[0].nums
+  }]
+
+  const options = {
+    chart: {
+      type: 'bar',
+      height: 350
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true
       }
-    ],
-    []
-  )
+    },
+    dataLabels: {
+      enabled: false
+    },
+    xaxis: {
+      categories: [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+    }
+  }
 
   return (
-    <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-      <Chart data={data} axes={axes} />
+    <div>
+      <Chart options={options} series={series} type='bar' width={500} height={500} />
     </div>
+
   )
 }
 

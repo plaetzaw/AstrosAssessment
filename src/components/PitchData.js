@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FindMaxSpeed, GetAllPitches } from '../utils'
 import PitchChart from './PitchChart'
 
 const PitchData = ({ pitch }) => {
-//   const [chartData, setChartData] = useState(null)
   console.log('hi?')
-
-  //   const chartData = []
 
   const pitches = GetAllPitches(pitch)
   console.log('here are you speeds', pitches)
@@ -14,7 +11,7 @@ const PitchData = ({ pitch }) => {
 
   return (
     <>
-      <PitchChart data={pitches} />
+      <PitchChart pitches={pitches} max={max} />
     </>
 
   )
