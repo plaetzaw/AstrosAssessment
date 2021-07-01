@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -13,14 +12,14 @@ const Pitch = styled.div`
     border: 2px solid black;
     align-items: center;
     justify-content: center;
-    background-color: ${props => props.selected ? 'green' : 'white'}
+    // background-color: ${props => props.selected ? 'green' : 'white'}
 `
 
 const Pitches = [
   { id: 1, pitch: 'Four-Seam Fastball' },
   { id: 2, pitch: 'Two-Seam Fastball' },
   { id: 3, pitch: 'Slider' },
-  { id: 4, pitch: 'Sinker' },
+  { id: 4, pitch: 'Changeup' },
   { id: 5, pitch: 'Curveball' },
   { id: 6, pitch: 'Cuttter' },
   { id: 7, pitch: 'Splitter' },
@@ -28,8 +27,6 @@ const Pitches = [
 ]
 
 const PitchSelector = ({ selectedPitch, setSelectedPitch }) => {
-  const [checked, setChecked] = useState(false)
-
   const handleChange = (pitch) => {
     console.log('pitch selected:', pitch)
     if (selectedPitch.includes(pitch) === false) {
@@ -50,7 +47,6 @@ const PitchSelector = ({ selectedPitch, setSelectedPitch }) => {
       <Pitch
         key={pitch.id}
         onClick={() => { handleChange(pitch.id) }}
-        selected={checked}
       >
         {pitch.pitch}
         {selectedPitch.includes(pitch.id) && 'SELECTED'}

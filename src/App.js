@@ -5,9 +5,9 @@ import PitchData from './components/PitchData'
 
 const App = () => {
   const [pitches, setPitches] = useState([])
-  const [selectedPitch, setSelectedPitch] = useState([1])
-  const [twoseam, setTwoSeam] = useState([])
+  const [selectedPitch, setSelectedPitch] = useState([])
   const [fourseam, setFourSeam] = useState([])
+  const [twoseam, setTwoSeam] = useState([])
   const [curve, setCurve] = useState([])
   const [changeup, setChangeup] = useState([])
   const [slider, setSlider] = useState([])
@@ -17,13 +17,9 @@ const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      console.log('fire')
       const res = await Promise.all([axios.get('https://raw.githubusercontent.com/rd-astros/hiring-resources/master/pitches.json')])
       console.log(res[0].data.queryResults.row)
-      // console.log(res.data.queryResults.row)
-      // await Promise.all([
-      //   setPitches(res[0].data.queryResults.row)
-      // ])
+
       const foursm = []
       const twosm = []
       const slid = []
@@ -79,13 +75,20 @@ const App = () => {
     getData()
   }, [])
 
-  // console.log(fourseam)
-
   return (
     <div>
       Hello
       <PitchSelector selectedPitch={selectedPitch} setSelectedPitch={setSelectedPitch} />
-      <PitchData pitch={fourseam} />
+      {selectedPitch}
+      {(selectedPitch.includes(1)) && <PitchData pitch={fourseam} />}
+      {(selectedPitch.includes(2)) && <PitchData pitch={twoseam} />}
+      {(selectedPitch.includes(3)) && <PitchData pitch={slider} />}
+      {(selectedPitch.includes(4)) && <PitchData pitch={changeup} />}
+      {(selectedPitch.includes(5)) && <PitchData pitch={curve} />}
+      {(selectedPitch.includes(6)) && <PitchData pitch={cutter} />}
+      {(selectedPitch.includes(7)) && <PitchData pitch={splitter} />}
+      {(selectedPitch.includes(8)) && <PitchData pitch={sinker} />}
+
     </div>
   )
 }
