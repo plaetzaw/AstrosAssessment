@@ -77,17 +77,15 @@ const App = () => {
 
   return (
     <div>
-      Hello
       <PitchSelector selectedPitch={selectedPitch} setSelectedPitch={setSelectedPitch} />
-      {selectedPitch}
-      {(selectedPitch.includes(1)) && <PitchData pitch={fourseam} />}
-      {(selectedPitch.includes(2)) && <PitchData pitch={twoseam} />}
-      {(selectedPitch.includes(3)) && <PitchData pitch={slider} />}
-      {(selectedPitch.includes(4)) && <PitchData pitch={changeup} />}
-      {(selectedPitch.includes(5)) && <PitchData pitch={curve} />}
-      {(selectedPitch.includes(6)) && <PitchData pitch={cutter} />}
-      {(selectedPitch.includes(7)) && <PitchData pitch={splitter} />}
-      {(selectedPitch.includes(8)) && <PitchData pitch={sinker} />}
+      {(selectedPitch.includes(1)) && <div>Four-Seam Fastball<PitchData pitch={fourseam} /></div>}
+      {(selectedPitch.includes(2)) && <div>Two-Seam Fastball<PitchData pitch={twoseam} /></div>}
+      {(selectedPitch.includes(3)) && <div>Slider<PitchData pitch={slider} /></div>}
+      {(selectedPitch.includes(4)) && <div>Change-Up<PitchData pitch={changeup} /></div>}
+      {(selectedPitch.includes(5)) && <div>Curveball<PitchData pitch={curve} /></div>}
+      {(selectedPitch.includes(6)) && <div>Cutter<PitchData pitch={cutter} /></div>}
+      {(selectedPitch.includes(7)) && <div>Splitter<PitchData pitch={splitter} /></div>}
+      {(selectedPitch.includes(8)) && <div>Sinker<PitchData pitch={sinker} /></div>}
 
     </div>
   )

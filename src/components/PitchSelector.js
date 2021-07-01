@@ -49,6 +49,7 @@ const PitchSelector = ({ selectedPitch, setSelectedPitch }) => {
         onClick={() => { handleChange(pitch.id) }}
       >
         {pitch.pitch}
+        <br />
         {selectedPitch.includes(pitch.id) && 'SELECTED'}
       </Pitch>
     )
