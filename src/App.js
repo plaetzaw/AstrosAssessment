@@ -18,7 +18,7 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await Promise.all([axios.get('https://raw.githubusercontent.com/rd-astros/hiring-resources/master/pitches.json')])
-      console.log(res[0].data.queryResults.row)
+      // console.log(res[0].data.queryResults.row)
 
       const foursm = []
       const twosm = []
@@ -60,7 +60,7 @@ const App = () => {
       }
 
       setPitches(res[0].data.queryResults.row)
-
+      // console.log(pitches)
       // console.log(foursm, twosm, slid, sink, curv, cut, change, split)
       setFourSeam(foursm)
       setTwoSeam(twosm)
@@ -77,7 +77,7 @@ const App = () => {
 
   return (
     <div>
-      <PitchSelector selectedPitch={selectedPitch} setSelectedPitch={setSelectedPitch} />
+      <PitchSelector selectedPitch={selectedPitch} setSelectedPitch={setSelectedPitch} pitches={pitches} />
       {(selectedPitch.includes(1)) && <div>Four-Seam Fastball<PitchData pitch={fourseam} /></div>}
       {(selectedPitch.includes(2)) && <div>Two-Seam Fastball<PitchData pitch={twoseam} /></div>}
       {(selectedPitch.includes(3)) && <div>Slider<PitchData pitch={slider} /></div>}
